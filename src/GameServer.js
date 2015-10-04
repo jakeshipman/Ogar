@@ -27,7 +27,7 @@ function GameServer(realmID,confile) {
     this.nodesEjected = []; // Ejected mass nodes
     this.nodesPlayer = []; // Nodes controlled by players
 
-    this.currentFood = 0;
+    this.currentFood = 50;
     this.movingNodes = []; // For move engine
     this.leaderboard = [];
     this.lb_packet = new ArrayBuffer(0); // Leaderboard packet
@@ -59,25 +59,25 @@ function GameServer(realmID,confile) {
         borderBottom: 6000, // Bottom border of map (Vanilla value: 11180.3398875)
         spawnInterval: 20, // The interval between each food cell spawn in ticks (1 tick = 50 ms)
         foodSpawnAmount: 10, // The amount of food to spawn per interval
-        foodStartAmount: 100, // The starting amount of food in the map
-        foodMaxAmount: 500, // Maximum food cells on the map
-        foodMass: 1, // Starting food size (In mass)
-        virusMinAmount: 10, // Minimum amount of viruses on the map.
-        virusMaxAmount: 50, // Maximum amount of viruses on the map. If this amount is reached, then ejected cells will pass through viruses.
-        virusStartMass: 100, // Starting virus size (In mass)
+        foodStartAmount: 100000, // The starting amount of food in the map
+        foodMaxAmount: 1000000000000000000, // Maximum food cells on the map
+        foodMass: 100000, // Starting food size (In mass)
+        virusMinAmount: 0, // Minimum amount of viruses on the map.
+        virusMaxAmount: 0, // Maximum amount of viruses on the map. If this amount is reached, then ejected cells will pass through viruses.
+        virusStartMass: 1, // Starting virus size (In mass)
         virusFeedAmount: 7, // Amount of times you need to feed a virus to shoot it
-        ejectMass: 12, // Mass of ejected cells
-        ejectMassLoss: 16, // Mass lost when ejecting cells
+        ejectMass: 50, // Mass of ejected cells
+        ejectMassLoss: 0, // Mass lost when ejecting cells
         ejectSpeed: 160, // Base speed of ejected cells
         ejectSpawnPlayer: 50, // Chance for a player to spawn from ejected mass
-        playerStartMass: 10, // Starting mass of the player cell.
-        playerMaxMass: 22500, // Maximum mass a player can have
+        playerStartMass: 1000000, // Starting mass of the player cell.
+        playerMaxMass: 100000000000000, // Maximum mass a player can have
         playerMinMassEject: 32, // Mass required to eject a cell
-        playerMinMassSplit: 36, // Mass required to split
-        playerMaxCells: 16, // Max cells the player is allowed to have
-        playerRecombineTime: 30, // Base amount of seconds before a cell is allowed to recombine
-        playerMassDecayRate: .002, // Amount of mass lost per second
-        playerMinMassDecay: 9, // Minimum mass for decay to occur
+        playerMinMassSplit: 1, // Mass required to split
+        playerMaxCells: 300, // Max cells the player is allowed to have
+        playerRecombineTime: 1, // Base amount of seconds before a cell is allowed to recombine
+        playerMassDecayRate: 0, // Amount of mass lost per second
+        playerMinMassDecay: 0, // Minimum mass for decay to occur
         playerMaxNickLength: 15, // Maximum nick length
         tourneyMaxPlayers: 12, // Maximum amount of participants for tournament style game modes
         tourneyPrepTime: 10, // Amount of ticks to wait after all players are ready (1 tick = 1000 ms)
